@@ -28,3 +28,11 @@ export const getFilesById= async (req: Request, res: Response) => {
     }
 }
 
+export const  getAllFile= async (req: Request, res: Response) => {
+    try {
+        const files:IFileOuput[] = await File.findAll();
+        return res.status(200).json(files);
+    } catch (error:any) {
+        return res.status(500).json({ error: error.message });
+    }
+}
