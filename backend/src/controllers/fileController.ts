@@ -57,3 +57,19 @@ export const updateFile= async (req: Request, res: Response) => {
         return res.status(500).json({ error: error.message });
     }
 }
+
+export const deleteFile= async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const file:File|null = await File.findByPk(id);
+        if (!file) {
+            return res.status(404).json({ error: "File not found" });
+        }
+        await file.destroy();
+        return res.status(204).json({
+            message: "File deleted successfully",
+        });
+    } catch (error:any) {
+        return res.status(500).json({ error: error.message });
+    }
+}
