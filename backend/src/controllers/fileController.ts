@@ -62,6 +62,7 @@ export const updateFile= async (req: Request, res: Response) => {
             req.body.name = req.file.filename;
             req.body.size = req.file.size;
             req.body.type = path.extname(req.file.originalname);
+            await  fs.promises.unlink(path.join(__dirname, '..','uploads',file.name));
         }
 
         file.description=req.body.description||file.description;
