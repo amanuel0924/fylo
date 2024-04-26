@@ -1,10 +1,10 @@
 import { Model,DataTypes } from "sequelize";
 import { db } from "../config/dbConfig";
-import { IFileAttributes, IFileInput, IFileOuput } from "../types/fileTypes";
+import { IFileAttributes, IFileInput } from "../types/fileTypes";
 
 
 
-export class File extends Model<IFileOuput, IFileInput> implements IFileAttributes {
+export class File extends Model<IFileInput> implements IFileAttributes {
     public id!:string
     public name!: string
     public type!: string
@@ -19,9 +19,8 @@ File.init(
     {
         id: {
             type: DataTypes.UUID,
-            primaryKey: true,
-            allowNull: false,
-            defaultValue: DataTypes.UUIDV4
+            defaultValue: DataTypes.UUIDV4,
+            primaryKey: true
         },
         name: {
             type: DataTypes.STRING,
@@ -38,9 +37,8 @@ File.init(
         description: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        createdAt: "",
-        updatedAt: ""
+        }
+      
     }, {
     sequelize: db,
     modelName: 'File',

@@ -1,11 +1,12 @@
 import express from 'express';
 
 import { createFile,getFilesById,getAllFile,updateFile,deleteFile } from '../controllers/fileController';
+import uploader from './../controllers/uploadController'
 
 const router = express.Router();
 
-router.route('/').post( createFile).get( getAllFile);
-router.route('/:id').get( getFilesById).put( updateFile).delete( deleteFile);
+router.route('/').post( uploader,createFile).get( getAllFile);
+router.route('/:id').get( getFilesById).put( uploader,updateFile).delete( deleteFile);
 
 
 export default router;

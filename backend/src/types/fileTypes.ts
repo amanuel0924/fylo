@@ -11,4 +11,3 @@ export interface IFileAttributes {
 
 
 export interface IFileInput extends Optional<IFileAttributes, 'id' > {}
-export interface IFileOuput extends Required<IFileAttributes> {}
