@@ -1,13 +1,15 @@
+import React from 'react'
+import { Navbar } from './componets/Navbar'
+import { Upload } from './pages/Upload'
 
 
-
-function App() {
+const App:React.FC= () => {
  
-
   return (
-    <div>
-      <h1 className=" text-blue-600 text-4xl">App</h1>
-    </div>
+    <>
+    <Navbar/>
+   <Upload/>
+    </>
   )
 }
 

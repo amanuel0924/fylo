@@ -9,6 +9,7 @@ import path from "path";
 
 export const createFile= async (req: Request, res: Response) => {
     try {
+        console.log('from controler',req);
         if(req.file){
             req.body.name = req.file.filename;
             req.body.size = req.file.size;
