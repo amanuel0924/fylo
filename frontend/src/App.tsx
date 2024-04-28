@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navbar } from './componets/Navbar'
-import { Upload } from './pages/Upload'
+//import { Upload } from './pages/Upload'
+import { Files } from './pages/Files'
 
 
 const App:React.FC= () => {
@@ -8,7 +9,8 @@ const App:React.FC= () => {
   return (
     <>
     <Navbar/>
-   <Upload/>
+    <Files/>
+   {/* <Upload/> */}
     </>
   )
 }
